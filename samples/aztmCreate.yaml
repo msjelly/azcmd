@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    aadpodidbinding: mir-tm-aadpodidbinding
+    app: azcmd
+    aztm-op: create-endpoint
+  name: mirtestbunny-ctor
+  namespace: mir-dev-controllers-system
+spec:
+  template:
+    metadata:
+      labels:
+        aadpodidbinding: mir-tm-aadpodidbinding
+        app: azcmd
+        aztm-op: create-endpoint
+    spec:
+      containers:
+      - name: azcmd
+        image: catalinaisle/azcmdgo:latest
+        imagePullPolicy: Always
+        command: ["/azcmd"]
+        args:
+        - trafficmanager-endpoint
+        - create
+        - ${AzureSubscriptionID}
+        - ${AzureLocation}
+        - ${AzureResourgeGroup}
+        - ${AzureTrafficManagerProfile}
+        - ${AzureTrafficManagerEndpoint}
+        - ${EndpointTarget}
+      restartPolicy: Never
+  backoffLimit: 10

@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  labels:
+    aadpodidbinding: mir-tm-aadpodidbinding
+    app: azcmd
+    aztm-op: delete-endpoint
+  name: mirtestbunny-dtor
+  namespace: mir-dev-controllers-system
+spec:
+  template:
+    metadata:
+      labels:
+        aadpodidbinding: mir-tm-aadpodidbinding
+        app: azcmd
+        aztm-op: delete-endpoint
+    spec:
+      containers:
+      - name: azcmd
+        image: catalinaisle/azcmdgo:latest
+        imagePullPolicy: Always
+        command: ["/azcmd"]
+        args:
+        - trafficmanager-endpoint
+        - delete
+        - ${AzureSubscriptionID}
+        - ${AzureResourgeGroup}
+        - ${AzureTrafficManagerProfile}
+        - ${AzureTrafficManagerEndpoint}
+      restartPolicy: Never
+  backoffLimit: 10
