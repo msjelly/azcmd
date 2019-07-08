@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMAGE ?= catalinaisle/azcmd:latest
+IMAGE ?= azcmd:latest
 
 PROJECT_PATH = github.com/msjelly/azcmd
 all: dependencies azcmd
