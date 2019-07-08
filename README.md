@@ -12,7 +12,7 @@ To build:
 To run on k8s cluster, see samples.
    * kubectl apply -f samples/aztmCreate.yaml
    * kubectl apply -f samples/aztmDelete.yaml
-   * For authentication/authorization, see set aadpodidbinding.  For details, see [AAD Pod Identity](https://github.com/Azure/aad-pod-identity).
+   * For authentication/authorization, set label aadpodidbinding.  For details, see [AAD Pod Identity](https://github.com/Azure/aad-pod-identity).
 
 Future work:
 Currently supports Profile with Performance routing method.  Add support for Profile with Weighted routing method.  For Endpoint in a Profile with Weighted routing method, Location is not a valid arg and Weight can be specified.
