@@ -27,12 +27,12 @@ type EndpointConfigKey string
 // These are valid values for EndpointConfigKey
 const (
 	EpConfigSubscriptionID    EndpointConfigKey = "SubscriptionID"
-	EpConfigLocation          EndpointConfigKey = "Location"
 	EpConfigResourceGroup     EndpointConfigKey = "ResourceGroup"
 	EpConfigProfileName       EndpointConfigKey = "ProfileName"
 	EpConfigEndpointType      EndpointConfigKey = "EndpoinType"
 	EpConfigEndpointName      EndpointConfigKey = "EndpointName"
 	EpConfigEndpointIPAddress EndpointConfigKey = "EndpointIPAddress"
+	EpConfigLocation          EndpointConfigKey = "Location"
 )
 
 // EndpointConfigKeyList is a list of keys for TrafficManagerEndpoing config
@@ -41,19 +41,19 @@ const (
 var EndpointConfigKeyList = []EndpointConfigKey{
 	EpConfigSubscriptionID,
 	EpConfigResourceGroup,
-	EpConfigLocation,
 	EpConfigProfileName,
 	EpConfigEndpointName,
 	EpConfigEndpointIPAddress,
+	EpConfigLocation,
 }
 
 var mandatoryCreateEpArgs = []EndpointConfigKey{
 	EpConfigSubscriptionID,
-	EpConfigLocation,
 	EpConfigResourceGroup,
 	EpConfigProfileName,
 	EpConfigEndpointName,
 	EpConfigEndpointIPAddress,
+	EpConfigLocation,
 }
 
 var deleteEpArgs = []EndpointConfigKey{
